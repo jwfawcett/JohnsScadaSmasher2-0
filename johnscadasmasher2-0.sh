@@ -106,6 +106,7 @@ case $dirtyinfo in
    echo  "see if target is infected with stuxnet: stuxnet-detect.nse, probably not but interesting script"
    echo "See if Siemen's TIA portal can be compromised by CVE-2019-10915 https://github.com/tenable/poc/tree/master/Siemens/TIAPortal"
    echo "read the write-up https://medium.com/tenable-techblog/nuclear-meltdown-with-critical-ics-vulnerabilities-8af3a1a13e6a"
+   echo " read this for better control of pwned PLCs https://cache.industry.siemens.com/dl/files/962/109737962/att_889758/v5/109737962_Shutdown_IPC_PSU8600_in_Buffer_mode_DOC_en.pdf"
    break
           
         ;;
