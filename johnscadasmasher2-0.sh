@@ -6,7 +6,7 @@ PS3= 'This is a basic script to enumerate ICS/SCADA systems. Please run as sudo 
 
 #prompt for selection
 
-damage=("SecretPing" "SkipHost" "SpoofIP" "ModbusDiscover" "Check-IEC-60870-5-104" "Aggressive" "Instructions" "Research")
+damage=("SecretPing" "SkipHost" "SpoofIP" "ModbusDiscover" "s7-info" "Check-IEC-60870-5-104" "Aggressive" "Instructions" "Research")
 
 #create array
 
@@ -46,15 +46,25 @@ case $dirtyinfo in
   "ModbusDiscover")
    echo "What is the IP you want to test?: "
    read $ip
-   sudo nmap $ip script=modbus-discover.nse
+   sudo nmap $ip --script modbus-discover.nse
+   break
+          
+        ;;
+   ;;
+        
+  "s7-info")
+   echo "What is the IP you want to test?: "
+   read $ip
+   sudo nmap $ip --script s7-info.nse
    break
           
         ;;
 
+
   "Check-IEC-60870-5-104")
    echo "What is the IP you want to test?: "
    read $ip
-   sudo nmap $ip script=iec-identify.nse  
+   sudo nmap $ip --script iec-identify.nse  
    break
           
         ;;
@@ -73,6 +83,7 @@ case $dirtyinfo in
    echo "SkipHost       -this is a basic port scan that will skip host discovery, also may help in some firewall evasion "
    echo "SpoofIP        -this will do a port scan from a spoofed ip of your choice, choose within the same subnet as your target for better results "
    echo "ModbusDiscover - this will use the Modbus Discover nse script in nmap for better enumeration of the Modbus protocol  "
+   echo "s7-info        - Checks for Sieman's S7 PLC devices"
    echo "Check-IEC-60870-5-104 - Checks IEC-60870-5-104 protocol using the specific nmap script for better enumeration "
    echo "Aggressive     -does an Aggressive scan on common Scada/ICS ports Warning: This scan is noisy and can trigger a firewall/NIDS/or IDS "
    echo "Instructions  - Gives details about the choices in this tool "
