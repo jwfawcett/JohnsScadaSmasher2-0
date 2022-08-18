@@ -104,6 +104,8 @@ case $dirtyinfo in
    echo "Check all data sheets of PLC for default creds, I have researched things such as Adminitrator/Administrator and Administrator/0000"
    echo "I already added some firewall evasion but you can add this to possibly evade firewalls firewall-bypass.nse"
    echo  "see if target is infected with stuxnet: stuxnet-detect.nse, probably not but interesting script"
+   echo "See if Siemen's TIA portal can be compromised by CVE-2019-10915 https://github.com/tenable/poc/tree/master/Siemens/TIAPortal"
+   echo "read the write-up https://medium.com/tenable-techblog/nuclear-meltdown-with-critical-ics-vulnerabilities-8af3a1a13e6a"
    break
           
         ;;
